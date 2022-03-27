@@ -1,0 +1,30 @@
+{% extends 'shop/basic.html' %}
+{% block title %} About Us {% endblock %}
+{% block body %}
+<form action="/shop/contact/" method="post"> {% csrf_token %}
+<div class="container my-3" >
+<h3>Contact Us</h3>
+<div class="mb-3">
+  <label for="Name" class="form-label">Name:-</label>
+  <input type="text" class="form-control" name='name' id="name" placeholder="Enter Your Name Here">
+  <label for="Email" class="form-label">Email:-</label>
+  <input type="Email" class="form-control" name='Email' id="Email" placeholder="abcd@gmail.com">
+  <label for="phone" class="form-label">Phone No:-</label>
+  <input type="tel" class="form-control" name='phone' id="phone" placeholder="Enter Your Phone NO Here">
+</div>
+<div class="mb-3">
+  <label for="desc" class="form-label">how may we help you ?</label>
+  <textarea class="form-control" name="desc" id="desc" rows="3"></textarea>
+</div>
+<button type="submit" class="btn btn-success">submit</button>
+</div>
+</form>
+ {% endblock %}
+ {% block js %}
+ <script>
+ {% if thank %}
+alert("Thank you for contacting us.we will get you soon!");
+localStorage.clear();
+{% endif %}
+</script>
+{% endblock %}
